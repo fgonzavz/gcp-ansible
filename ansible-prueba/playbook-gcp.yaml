@@ -1,0 +1,22 @@
+---
+- name: Instalar y Levantar NGINX
+  hosts: servidor-gcp
+  become: yes 
+
+  tasks:
+    - name: Actualizar caché de paquetes (solo para sistemas Ubuntu)
+      apt:
+        update_cache: yes
+      when: ansible_distribution == 'Ubuntu'
+
+    - name: Instalar NGINX
+      apt:
+        name: nginx
+        state: present
+
+    - name: Iniciar servicio NGINX
+      service:
+        name: nginx
+        state: started
+        enabled: yes  
+...
