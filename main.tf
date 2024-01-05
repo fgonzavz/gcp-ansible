@@ -32,7 +32,7 @@ resource "google_compute_instance" "instancia_final" {
   }
 
   metadata = {
-    ssh-keys = "fgonzavz:${file("ansible-prueba/ssh/id_rsa.pub")}"
+    ssh-keys = "fgonzavz:${file("ansible/ssh/id_rsa.pub")}"
   }
 
 }
