@@ -28,7 +28,7 @@ resource "google_compute_instance" "instancia_final" {
     }
   }
   provisioner "local-exec" {
-    command = "echo '[servidor-gcp] \n ${google_compute_instance.instancia_final.network_interface.0.access_config.0.nat_ip}' > external_ip"
+    command = "echo '[servidor-gcp] \n ${google_compute_instance.instancia_final.network_interface.0.access_config.0.nat_ip}' > inventory"
   }
 
   metadata = {
